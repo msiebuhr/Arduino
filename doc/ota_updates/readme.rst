@@ -428,15 +428,20 @@ Example header data:
 
 ::
 
-        [HTTP_USER_AGENT] => ESP8266-http-Update
-        [HTTP_X_ESP8266_STA_MAC] => 18:FE:AA:AA:AA:AA
-        [HTTP_X_ESP8266_AP_MAC] => 1A:FE:AA:AA:AA:AA
-        [HTTP_X_ESP8266_FREE_SPACE] => 671744
-        [HTTP_X_ESP8266_SKETCH_SIZE] => 373940
-        [HTTP_X_ESP8266_SKETCH_MD5] => a56f8ef78a0bebd812f62067daf1408a
-        [HTTP_X_ESP8266_CHIP_SIZE] => 4194304
-        [HTTP_X_ESP8266_SDK_VERSION] => 1.3.0
-        [HTTP_X_ESP8266_VERSION] => DOOR-7-g14f53a19
+        User-Agent: ESP8266-http-Update
+        x-ESP8266-STA-MAC: 18:FE:AA:AA:AA:AA
+        x-ESP8266-AP-MAC: 1A:FE:AA:AA:AA:AA
+        x-ESP8266-free-space: 671744
+        x-ESP8266-sketch-size: 373940
+        x-ESP8266-sketch-md5: a56f8ef78a0bebd812f62067daf1408a
+        x-ESP8266-chip_size: 4194304
+        x-ESP8266-sdk_version: 1.3.0
+        x-ESP8266-version: DOOR-7-g14f53a19
+        x-ESP8266-mode: sketch
+
+The header `x-ESP8266-version` is set to the string given as the second argument to `handleUpdate()`.
+
+If the third argument is `true`, the `x-ESP8266-mode`-header will have the value `spiffs`.
 
 With this information the script now can check if an update is needed. It is also possible to deliver different binaries based on the MAC address for example.
 
